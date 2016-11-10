@@ -11,14 +11,14 @@ $( document ).ready(function() {
 
   $.ajax({
     type: 'GET',
-    url: 'https://pokeapi.co/api/v2/pokemon/?limit=151',
+    url: '//pokeapi.co/api/v2/pokemon/?limit=151',
     success: function (res) {
       let images = [];
       for(let i = 0 ; i < res.results.length; i++)
       {
         $.ajax({
           type : 'GET',
-          url :  'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + i + '.png',
+          url :  '//raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + i + '.png',
           success: function (item) {
             images.push(item);
           }
@@ -43,7 +43,7 @@ $( document ).ready(function() {
           },
           {data: "picture", title: "picture","search": false, "render": function (data, type, row) {
 
-              return '<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' +
+              return '<img src="//raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' +
                       getPokeID(row)
                       +'.png" />';
             }

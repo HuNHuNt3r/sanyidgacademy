@@ -19,15 +19,15 @@ $( document ).ready(function() {
 
   $.ajax({
     type: 'GET',
-    url: 'http://pokeapi.co/api/v2/pokemon/' + id +'/',
+    url: '//pokeapi.co/api/v2/pokemon/' + id +'/',
     success: function (res) {
 
       $('#mycontainer').append(
-           '<div class="row"> <div class="col-sm-offset-6 "> <span class="label label-info">ID:</span>' +res['id']+'         </div>  </div> '
-          + '<div class="row"><div class="col-sm-offset-6"> <span class="label label-info">Name:</span>   '+res['name']+'      </div>  </div> '
-          + '<div class="row"><div class="col-sm-offset-6"> <span class="label label-info">Height:</span> '+res['height']+'  </div>  </div> '
-          + '<div class="row"><div class="col-sm-offset-6"> <span class="label label-info">Weight:</span> '+res['weight']+'  </div>  </div> '
-          + '<div class="row"><div class="col-sm-offset-6"> <span class="label label-info">Order:</span>    '+res['order']+'    </div>  </div> '
+           '<div class="row"> <div class="col-sm-offset-4 col-md-2 "><span class="label label-info">ID:</span>     </div>  <div class="col-sm-offset-1 col-md-2">'+res['id']+'      </div>  </div> '
+          + '<div class="row"><div class="col-sm-offset-4 col-md-2"> <span class="label label-info">Name:</span>   </div>  <div class="col-sm-offset-1 col-md-2">'+res['name']+'    </div>  </div> '
+          + '<div class="row"><div class="col-sm-offset-4 col-md-2"> <span class="label label-info">Height:</span> </div>  <div class="col-sm-offset-1 col-md-2">'+res['height']+'  </div>  </div> '
+          + '<div class="row"><div class="col-sm-offset-4 col-md-2"> <span class="label label-info">Weight:</span> </div>  <div class="col-sm-offset-1 col-md-2">'+res['weight']+'  </div>  </div> '
+          + '<div class="row"><div class="col-sm-offset-4 col-md-2"> <span class="label label-info">Order:</span>  </div>  <div class="col-sm-offset-1 col-md-2">'+res['order']+'   </div>  </div> '
       )
     }
   })
