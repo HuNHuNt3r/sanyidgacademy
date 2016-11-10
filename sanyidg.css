@@ -4,5 +4,8 @@ a:hover {
 
 .row {
     margin-right : 0px;
+}
+.opened{
+    outline: thin solid black;
 
 }

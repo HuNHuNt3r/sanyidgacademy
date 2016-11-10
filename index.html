@@ -8,10 +8,14 @@
     <link rel="stylesheet" href="sanyidg.css"/>
 </head>
 <body>
-<table id="myTable" class="table table-bordered table-hover" style="width:100%">
+<div class="panel panel-default">
+    <audio autoplay controls>
+        <source src="pokemon.mp3" type="audio/mpeg">
+    </audio>
+<table id="myTable" class="table table-bordered table-hover" style="width:100%" >
     <thead>
     <tr>
-        <th><input class="form-control " type="text" placeholder="ID"></th>
+        <th ><input class="form-control " type="text" placeholder="ID"></th>
         <th><input class="form-control " type="text" placeholder="Name"></th>
         <th><input class="form-control " type="text" placeholder="Url"></th>
         <th></th>
@@ -23,8 +27,8 @@
         <th>Picture</th>
     </tr>
     </thead>
-
 </table>
+</div>
 </body>
 <script src="modules/jquery/dist/jquery.min.js"></script>
 <script src="modules/datatables.net/js/jquery.dataTables.js" type="application/javascript"></script>
