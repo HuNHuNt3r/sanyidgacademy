@@ -29,12 +29,16 @@ $( document ).ready(function() {
         data: res.results,
         pageLength: 50,
         columns: [
+          {title: 'ID',"search": false, "render": function (data, type, row) {
+
+            return getPokeID(row);
+           }
+          },
           {data: "name", title: "Name", "render": function (data,type,row) {
             return '<a href="' + "details.html" + "?id=" + getPokeID(row) +'">'+capitalizeFirstLetter(row["name"])+ '</a>';
             }
           },
           //{data: "url", title: "url"}
-
           {
             "data": "url", title: "Url"  ,"search": false, "render": function (data, type, row) {
 
