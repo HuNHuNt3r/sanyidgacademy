@@ -76,6 +76,30 @@ $( document ).ready(function() {
         }
       });
 
+      $("#myTable tr td:first-child").on("click",function (data) {
+        var SelectedRow = data.target.textContent;
+        var $thisRow = $(data.target).parent();
+
+        if($thisRow.hasClass('opened')) {
+          $thisRow.removeClass('opened')
+          $thisRow.next().remove();
+        }
+        else {
+          $thisRow.addClass("opened");
+          $.ajax({
+            type: 'GET',
+            url: '//pokeapi.co/api/v2/pokemon/' + data.target.textContent + '/',
+            success: function (res) {
+              $thisRow.after(
+                  '<tr><td><pair><key>ID:</key><value>' + res["id"] + '</value></pair>'
+                  + '<br>' + '<pair><key>Height:</key><value>' + res["height"] + '</value></pair> '
+                  + '<br>' + '<pair><key>Weight:</key><value>' + res['weight'] + '</value></pair>'
+                  + '<br>' + '<pair><key>Order:</key><value>' + res['order'] + '</value></pair></td>'
+              )
+            }
+          })
+        }
+      })
 
     }
   })
