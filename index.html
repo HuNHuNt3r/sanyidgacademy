@@ -8,10 +8,24 @@
     <link rel="stylesheet" href="sanyidg.css"/>
 </head>
 <body>
-<table id="myTable" class="table-bordered">
+<table id="myTable" class="table table-bordered table-hover" style="width:100%">
+    <thead>
+    <tr>
+        <th><input class="form-control " type="text" placeholder="Name"></th>
+        <th><input class="form-control " type="text" placeholder="Url"></th>
+        <th></th>
+    </tr>
+    <tr>
+        <th>Name</th>
+        <th>Url</th>
+        <th>Picture</th>
+    </tr>
+    </thead>
+
 </table>
 </body>
 <script src="modules/jquery/dist/jquery.min.js"></script>
 <script src="modules/datatables.net/js/jquery.dataTables.js" type="application/javascript"></script>
+<script src=" node_modules/datatables.net-bs/js/dataTables.bootstrap.js" type="application/javascript"></script>
 <script src="sanyidg.js" type="application/javascript"></script>
 </html>

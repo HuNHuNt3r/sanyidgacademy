@@ -32,7 +32,6 @@ $( document ).ready(function() {
     success: function (res) {
 
 
-
       $('#mycontainer').append(
           '<div class="row">'
           + '<div class="col-sm-offset-1 col-sm-2" id="myimg" > <img src="//raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' +res['id'] +'.png" /> </div>'

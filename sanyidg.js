@@ -25,23 +25,23 @@ $( document ).ready(function() {
         })
       }
 
-      $('#myTable').DataTable({
+      var oTable = $('#myTable').DataTable({
         data: res.results,
         pageLength: 50,
         columns: [
-          {data: "name", title: "name", "render": function (data,type,row) {
+          {data: "name", title: "Name", "render": function (data,type,row) {
             return '<a href="' + "details.html" + "?id=" + getPokeID(row) +'">'+capitalizeFirstLetter(row["name"])+ '</a>';
             }
           },
           //{data: "url", title: "url"}
 
           {
-            "data": "url", title: "url"  ,"search": false, "render": function (data, type, row) {
+            "data": "url", title: "Url"  ,"search": false, "render": function (data, type, row) {
 
               return '<a href="' + data + '">'+row["name"]+'</a>';
             }
           },
-          {data: "picture", title: "picture","search": false, "render": function (data, type, row) {
+          {data: "picture", title: "Picture","search": false, "render": function (data, type, row) {
 
               return '<img src="//raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' +
                       getPokeID(row)
@@ -50,6 +50,29 @@ $( document ).ready(function() {
           },
         ]
       });
+
+      $("#myTable thead input[type='text']").on('keyup change', function () {
+        oTable
+            .column($(this).parent().index() + ':visible')
+            .search(this.value)
+            .draw();
+      });
+
+      $("#myTable thead input[type='checkbox']").on('click', function () {
+        if (this.checked) {
+          oTable
+              .column($(this).parent().index() + ':visible')
+              .search('true')
+              .draw();
+        } else {
+          oTable
+              .column($(this).parent().index() + ':visible')
+              .search('')
+              .draw();
+        }
+      });
+
+
     }
   })
 
