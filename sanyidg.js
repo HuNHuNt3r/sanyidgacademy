@@ -1,4 +1,14 @@
 $( document ).ready(function() {
+
+  function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+
+  function getPokeID(row)
+  {
+    return row.url.split('/')[ row.url.split('/').length-2]
+  }
+
   $.ajax({
     type: 'GET',
     url: 'https://pokeapi.co/api/v2/pokemon/?limit=151',
@@ -19,7 +29,10 @@ $( document ).ready(function() {
         data: res.results,
         pageLength: 50,
         columns: [
-          {data: "name", title: "name"},
+          {data: "name", title: "name", "render": function (data,type,row) {
+            return '<a href="' + "details.html" + "?id=" + getPokeID(row) +'">'+capitalizeFirstLetter(row["name"])+ '</a>';
+            }
+          },
           //{data: "url", title: "url"}
 
           {
@@ -31,7 +44,7 @@ $( document ).ready(function() {
           {data: "picture", title: "picture","search": false, "render": function (data, type, row) {
 
               return '<img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' +
-                        row["url"].split('/')[ row["url"].split('/').length-2]
+                      getPokeID(row)
                       +'.png" />';
             }
           },
