@@ -1,7 +1,7 @@
 $( document ).ready(function() {
   $.ajax({
     type: 'GET',
-    url: 'http://pokeapi.co/api/v2/pokemon/?limit=151',
+    url: 'https://pokeapi.co/api/v2/pokemon/?limit=151',
     success: function (res) {
       let images = [];
       for(let i = 0 ; i < res.results.length; i++)
