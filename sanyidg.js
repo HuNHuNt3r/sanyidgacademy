@@ -76,7 +76,7 @@ $( document ).ready(function() {
         }
       });
 
-      $("#myTable tr td:first-child").on("click",function (data) {
+      $("#myTable").on("click", "tr td:first-child" ,function (data) {
         var SelectedRow = data.target.textContent;
         var $thisRow = $(data.target).parent();
 
