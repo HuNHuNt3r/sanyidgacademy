@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "angular": "^1.5.8",
     "bootstrap": "^3.3.7",
     "datatables.net": "^1.10.12",
     "datatables.net-bs": "^1.10.12",

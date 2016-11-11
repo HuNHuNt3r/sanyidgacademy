@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" ng-app ="pokeApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanyi és DG hiperszuper Angular.JS Pokemon oldala</title>
+    <link href="../modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="sanyidg.css"/>
+</head>
+<body ng-controller="pokecontroller">
+    <div class="panel panel-default">
+        <div>
+            <div ng-repeat="pokemon in pokemons">  {{ pokemon.name}}
+                <span ng-if="!details[pokemon.id]"  ng-click="getDetails(pokemon.id)"> click</span>
+                <span ng-if="details[pokemon.id]" ng-click="closeDetails(pokemon.id)"> click</span>
+                <!--{{details[pokemon.id]}}-->
+                <div ng-if="details[pokemon.id]">Height: {{details[pokemon.id].height}}</div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="../modules/angular/angular.min.js"></script>
+<script src="sanyidg.js" type="application/javascript"></script>
+</html>
