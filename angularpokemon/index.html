@@ -10,7 +10,7 @@
 <body ng-controller="pokecontroller">
     <div class="panel panel-default">
         <div>
-            <div ng-repeat="pokemon in pokemons">  {{ pokemon.name}}
+            <div ng-repeat="pokemon in pokemons"> {{pokemon.id}} {{ pokemon.name}} {{pokemon.url}}
                 <span ng-if="!details[pokemon.id]"  ng-click="getDetails(pokemon.id)"> ˇopen</span>
                 <span ng-if="details[pokemon.id]" ng-click="closeDetails(pokemon.id)"> ^close</span>
                 <!--{{details[pokemon.id]}}-->

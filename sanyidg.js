@@ -13,17 +13,6 @@ $( document ).ready(function() {
     type: 'GET',
     url: '//pokeapi.co/api/v2/pokemon/?limit=151',
     success: function (res) {
-      let images = [];
-      for(let i = 0 ; i < res.results.length; i++)
-      {
-        $.ajax({
-          type : 'GET',
-          url :  '//raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + i + '.png',
-          success: function (item) {
-            images.push(item);
-          }
-        })
-      }
 
       var oTable = $('#myTable').DataTable({
         data: res.results,
@@ -94,14 +83,14 @@ $( document ).ready(function() {
             url: '//pokeapi.co/api/v2/pokemon/' + data.target.textContent + '/',
             success: function (res) {
               $thisRow.after(
-                  '<tr style="display: none" class="mewtr"><td><pair><key>ID:</key><value>' + res["id"] + '</value></pair>'
+                  '<tr style="display: none" class="newtr"><td><pair><key>ID:</key><value>' + res["id"] + '</value></pair>'
                   + '<br>' + '<pair><key>Height:</key><value>' + res["height"] + '</value></pair> '
                   + '<br>' + '<pair><key>Weight:</key><value>' + res['weight'] + '</value></pair>'
                   + '<br>' + '<pair><key>Order:</key><value>' + res['order'] + '</value></pair></td>'
                   + '<td></td><td></td> <td></td></tr>'
                   )
-              $thisRow.next('.mewtr').hide();
-              $thisRow.next('.mewtr').slideDown('slow', function () {
+              $thisRow.next('.newtr').hide();
+              $thisRow.next('.newtr').slideDown('slow', function () {
                 
               })
 
