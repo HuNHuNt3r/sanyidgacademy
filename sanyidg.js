@@ -99,6 +99,9 @@ $( document ).ready(function() {
         }
       })
 
+      $('#myTable_length').append($('audio'));
+      $('audio').trigger("play");
+
     }
   })
 
