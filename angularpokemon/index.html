@@ -11,8 +11,8 @@
     <div class="panel panel-default">
         <div>
             <div ng-repeat="pokemon in pokemons">  {{ pokemon.name}}
-                <span ng-if="!details[pokemon.id]"  ng-click="getDetails(pokemon.id)"> click</span>
-                <span ng-if="details[pokemon.id]" ng-click="closeDetails(pokemon.id)"> click</span>
+                <span ng-if="!details[pokemon.id]"  ng-click="getDetails(pokemon.id)"> ˇopen</span>
+                <span ng-if="details[pokemon.id]" ng-click="closeDetails(pokemon.id)"> ^close</span>
                 <!--{{details[pokemon.id]}}-->
                 <div ng-if="details[pokemon.id]">Height: {{details[pokemon.id].height}}</div>
             </div>
