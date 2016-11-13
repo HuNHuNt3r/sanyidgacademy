@@ -1,0 +1,44 @@
+.pokemonRowEven > .row {
+    background: rgb(251, 251, 251);
+}
+
+.pokemonRow :hover{
+    background: rgb(245, 245, 245);
+}
+
+.pokemonId {
+
+}
+
+.pokemonName {
+    text-transform: capitalize;
+}
+
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
+.hcenter {
+    margin: auto;
+}
+
+hr {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.glyphicon:hover {
+    background-color: initial;
+}
+
+.btn-info:hover {
+    /*color: #31708f;*/
+    background-color: #31708f;
+    /*border-color: #285e8e;*/
+}
+
+.btn-warning:hover {
+    background-color: #8a6d3b;
+}

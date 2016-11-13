@@ -8,13 +8,91 @@
     <link rel="stylesheet" href="sanyidg.css"/>
 </head>
 <body ng-controller="pokecontroller">
-    <div class="panel panel-default">
-        <div>
-            <div ng-repeat="pokemon in pokemons"> {{pokemon.id}} {{ pokemon.name}} {{pokemon.url}}
-                <span ng-if="!details[pokemon.id]"  ng-click="getDetails(pokemon.id)"> ˇopen</span>
-                <span ng-if="details[pokemon.id]" ng-click="closeDetails(pokemon.id)"> ^close</span>
-                <!--{{details[pokemon.id]}}-->
-                <div ng-if="details[pokemon.id]">Height: {{details[pokemon.id].height}}</div>
+
+    <div class="container hcenter">
+        <div class="row" >
+            <div class="col-sm-offset-2 col-sm-8" >
+
+                <h2 class="text-center">Sanyi & DG's pokemon site built by Angular.JS</h2>
+                <div class="panel-group">
+
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+
+                            <div class="row">
+                                <div class="col-sm-7" style="vertical-align: middle">
+                                    <h4>The original 151 pokemons</h4>
+                                </div>
+                                <div class="col-sm-5 text-right">
+                                    <div style="display: inline" class="controls form-inline">
+                                        <input ng-model="searchFilter" type="search" placeholder="Search" class="form-control">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row text-left">
+                                <div class="col-sm-1">
+                                    <strong>ID</strong>
+                                </div>
+
+                                <div class="col-sm-3">
+                                    <strong>Image</strong>
+                                </div>
+
+                                <div class="col-sm-3">
+                                    <strong>Name</strong>
+                                </div>
+
+                                <div class="col-sm-5 text-right">
+                                    Order by:
+                                    <a href="#" ng-click="orderById()">
+                                        ID
+                                    </a> |
+                                    <a href="#" ng-click="orderByName()">
+                                        Name
+                                    </a>
+                                </div>
+                            </div>
+                            <hr>
+                            <div ng-repeat="pokemon in pokemons | filter: filterPokemons |  orderBy: orderBy track by pokemon.id"
+                                 ng-class="(pokemon.id%2 == 0) ? 'pokemonRow pokemonRowEven'  : 'pokemonRow'">
+                                <div class="row">
+
+                                    <div class="col-sm-1 vcenter">
+                                        <span class="pokemonId">{{pokemon.id}}</span>
+                                    </div><!--
+                                 --><div class="col-sm-3 vcenter">
+                                        <img src="//raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{pokemon.id}}.png" />
+                                    </div><!--
+                                 --><div class="col-sm-3 vcenter">
+                                        <a class="pokemonName" href="{{pokemon.url}}" target="_blank" >{{ pokemon.name}}</a>
+                                    </div><!--
+                                 --><div class="col-sm-5 vcenter text-right">
+                                        <span ng-if="!details[pokemon.id]"  ng-click="getDetails(pokemon.id)">
+                                            <button type="button" class="btn btn-info btn-sm">
+                                              <span class="glyphicon glyphicon-chevron-down"></span> Show details
+                                            </button>
+                                        </span>
+                                        <span ng-if="details[pokemon.id]" ng-click="closeDetails(pokemon.id)">
+                                            <button type="button" class="btn btn-warning btn-sm">
+                                              <span class="glyphicon glyphicon-chevron-up"></span> Hide
+                                            </button>
+                                        </span>
+                                    </div>
+                                <div ng-if="details[pokemon.id]">Height: {{details[pokemon.id].height}}</div>
+                                </div>
+                                <hr>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+
             </div>
         </div>
     </div>

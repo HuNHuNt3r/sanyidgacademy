@@ -8,20 +8,10 @@ angular.module('pokeApp', [])
 
         $scope.details = [];
         res.results.forEach(function (pokemon) {
-          pokemon["id"] = getPokeID(pokemon)
+          pokemon["id"] = Number(getPokeID(pokemon))
         });
 
-        console.log(res.results);
-
         $scope.pokemons = res.results;
-        let images = [];
-        for (let i = 0; i < res.results.length; i++) {
-          $http.get('//raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + i + '.png')
-              .success(function (item) {
-                images.push(item);
-              });
-        }
-        $scope.images = images;
     });
 
     $scope.getDetails = function (id) {
@@ -36,12 +26,40 @@ angular.module('pokeApp', [])
     };
 
 
+    $scope.filterPokemons = function (row) {
+
+        var filterValue = $scope.searchFilter;
+        var returnValue = true;
+
+        if (filterValue !== undefined) {
+
+            filterValue = filterValue.toString();
+
+            var pokemonId = (row.id == null) ? '' : row.id.toString().toLowerCase();
+            var pokemonName = (row.name == null) ? '' : row.name.toString().toLowerCase();
+
+            returnValue =
+            (
+                (pokemonId === filterValue) ||
+                (pokemonName.indexOf(filterValue) !== -1)
+            );
+
+        }
+        return returnValue;
+
+    };
+
+    $scope.orderById = function () {
+        $scope.orderBy = 'id';
+    };
+
+    $scope.orderByName = function () {
+        $scope.orderBy = 'name';
+    };
+
     function getPokeID(row)
     {
         return row.url.split('/')[ row.url.split('/').length-2]
     }
-
-
-
 
 });
