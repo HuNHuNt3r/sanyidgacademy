@@ -1,6 +1,6 @@
 "use strict";
 
-angular.module('pokeApp', [])
+angular.module('pokeApp', ['ngAnimate'])
     .controller('pokecontroller', function ($scope, $http) {
 
     $scope.loading = true;

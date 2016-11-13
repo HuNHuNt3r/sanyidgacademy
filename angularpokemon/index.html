@@ -83,7 +83,7 @@
                                             </button>
                                         </span>
                                     </div>
-                                <div ng-if="details[pokemon.id]">
+                                <div id="pokemonDetails" ng-if="details[pokemon.id]" class="animate-if">
                                     <div class="col-sm-offset-3">
                                         Height: {{details[pokemon.id].height}}
                                         Weight: {{details[pokemon.id].weight}}
@@ -101,13 +101,11 @@
 
                 </div>
 
-
-
-
             </div>
         </div>
     </div>
 </body>
 <script src="../modules/angular/angular.min.js"></script>
+<script src="../modules/angular-animate/angular-animate.min.js"></script>
 <script src="sanyidg.js" type="application/javascript"></script>
 </html>
