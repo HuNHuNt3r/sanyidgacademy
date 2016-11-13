@@ -24,6 +24,19 @@
     margin: auto;
 }
 
+.before20px {
+    margin-top: 20px;
+}
+
+.after20px {
+    margin-bottom: 20px;
+}
+
+.errorMessage {
+    color: red;
+    font-weight: bolder;
+}
+
 hr {
     margin-top: 0px;
     margin-bottom: 0px;

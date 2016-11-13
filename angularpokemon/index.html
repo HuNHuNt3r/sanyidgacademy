@@ -56,6 +56,8 @@
                                 </div>
                             </div>
                             <hr>
+                            <div class="text-center before20px" ng-show="loading" ><img src="loader.gif" /> </div>
+                            <div class="text-center before20px errorMessage" ng-if="loadError" >{{ loadError }} </div>
                             <div ng-repeat="pokemon in pokemons | filter: filterPokemons |  orderBy: orderBy track by pokemon.id"
                                  ng-class="(pokemon.id%2 == 0) ? 'pokemonRow pokemonRowEven'  : 'pokemonRow'">
                                 <div class="row">
@@ -64,7 +66,7 @@
                                         <span class="pokemonId">{{pokemon.id}}</span>
                                     </div><!--
                                  --><div class="col-sm-3 vcenter">
-                                        <img src="//raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{pokemon.id}}.png" />
+                                        <img src="loader.gif" ng-src="{{ pokemon.id ? '//raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + pokemon.id + '.png' : 'loader.gif' }}" />
                                     </div><!--
                                  --><div class="col-sm-3 vcenter">
                                         <a class="pokemonName" href="{{pokemon.url}}" target="_blank" >{{ pokemon.name}}</a>

@@ -3,15 +3,26 @@
 angular.module('pokeApp', [])
     .controller('pokecontroller', function ($scope, $http) {
 
+    $scope.loading = true;
+    $http.get('//pokeapi.co/api/v2/pokemon/?limit=151').then(function (response) {
 
-    $http.get('//pokeapi.co/api/v2/pokemon/?limit=151').success(function (res) {
+        var result = response.data.results;
 
         $scope.details = [];
-        res.results.forEach(function (pokemon) {
+        result.forEach(function (pokemon) {
           pokemon["id"] = Number(getPokeID(pokemon))
         });
 
-        $scope.pokemons = res.results;
+        $scope.pokemons = result;
+
+    }).catch(function ( response ) {
+
+        // handle the error somehow
+        $scope.loadError = "Network error!";  //, response.status, response.data);
+    }).finally(function() {
+
+        // called no matter success or failure
+        $scope.loading = false;
     });
 
     $scope.getDetails = function (id) {
