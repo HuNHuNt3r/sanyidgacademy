@@ -33,20 +33,22 @@
     font-weight: bolder;
 }
 
+.fix-to-top {
+    position: fixed;
+    top: 0px;
+    /*height: 20px;*/
+    z-index: 999;
+    width: 50%;
+    background-color: white;
+}
+
 /* animation */
 #pokemonDetails {
-    /*background-color: cornflowerblue;*/
-    /* pour l'ex, on met une hauteur au div, pour qu'il soit suffisament
-    haut pour le voir bien... */
+
     height: 40px;
     margin-top: 15px;
 }
-/*
-Pour dire en CSS3 ce qui devra être animé :
-Angular ajoute dynamiquement des classes CSS.
-La transition se fait soit entre ng-enter et ng-enter-active
-ou entre ng-leave et ng-leave-active.
-*/
+
 .animate-if.ng-enter, .animate-if.ng-leave {
     -webkit-transition: 1s linear all;
     -moz-transition: 1s linear all;
@@ -54,26 +56,27 @@ ou entre ng-leave et ng-leave-active.
     -o-transition: 1s linear all;
     transition: 1s linear all;
 }
-/* du début de l'entrée */
+
 .animate-if.ng-enter {
     max-height: 0;
     opacity: 0;
 }
-/* à la fin de l'entrée */
+
 .animate-if.ng-enter.ng-enter-active {
     max-height: 40px;
     opacity:1;
 }
-/* du début de la sortie */
+
 .animate-if.ng-leave {
     max-height: 40px;
     opacity:1;
 }
-/* à la fin de la sortie */
+
 .animate-if.ng-leave.ng-leave-active {
     max-height: 0;
     opacity:1;
 }
+/* end of animation */
 
 /* overriding */
 hr {
