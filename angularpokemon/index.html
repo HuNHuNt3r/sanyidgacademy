@@ -83,7 +83,16 @@
                                             </button>
                                         </span>
                                     </div>
-                                <div ng-if="details[pokemon.id]">Height: {{details[pokemon.id].height}}</div>
+                                <div ng-if="details[pokemon.id]">
+                                    <div class="col-sm-offset-3">
+                                        Height: {{details[pokemon.id].height}}
+                                        Weight: {{details[pokemon.id].weight}}
+                                        Base XP: {{details[pokemon.id].base_experience}}
+                                        Types:
+                                        <span ng-repeat="type in details[pokemon.id].types">
+                                            {{type.type.name}}
+                                        </span>
+                                    </div>
                                 </div>
                                 <hr>
                             </div>

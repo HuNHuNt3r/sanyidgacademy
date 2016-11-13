@@ -28,7 +28,8 @@ angular.module('pokeApp', [])
     $scope.getDetails = function (id) {
 
         $http.get('//pokeapi.co/api/v2/pokemon/' + id + '/').success(function (data) {
-          $scope.details[id] = data;
+
+            $scope.details[id] = data;
         });
     };
 
