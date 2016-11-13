@@ -72,28 +72,30 @@
                                         <a class="pokemonName" href="{{pokemon.url}}" target="_blank" >{{ pokemon.name}}</a>
                                     </div><!--
                                  --><div class="col-sm-5 vcenter text-right">
-                                        <span ng-if="!details[pokemon.id]"  ng-click="getDetails(pokemon.id)">
+                                        <span ng-if="!details[pokemon.id] || details[pokemon.id]['hidden']"  ng-click="getDetails(pokemon.id)">
                                             <button type="button" class="btn btn-info btn-sm">
                                               <span class="glyphicon glyphicon-chevron-down"></span> Show details
                                             </button>
                                         </span>
-                                        <span ng-if="details[pokemon.id]" ng-click="closeDetails(pokemon.id)">
+                                        <span ng-if="details[pokemon.id] && !details[pokemon.id]['hidden']" ng-click="closeDetails(pokemon.id)">
                                             <button type="button" class="btn btn-warning btn-sm">
                                               <span class="glyphicon glyphicon-chevron-up"></span> Hide
                                             </button>
                                         </span>
                                     </div>
-                                <div id="pokemonDetails" ng-if="details[pokemon.id]" class="animate-if">
-                                    <div class="col-sm-offset-3">
-                                        Height: {{details[pokemon.id].height}}
-                                        Weight: {{details[pokemon.id].weight}}
-                                        Base XP: {{details[pokemon.id].base_experience}}
-                                        Types:
-                                        <span ng-repeat="type in details[pokemon.id].types">
-                                            {{type.type.name}}
-                                        </span>
+
+                                    <div id="pokemonDetails" ng-if="details[pokemon.id] && !details[pokemon.id]['hidden']" class="animate-if">
+                                        <div class="col-sm-offset-3">
+                                            <img  src="loader.gif" ng-if="details[pokemon.id] === 1" />
+                                            Height: {{details[pokemon.id].height}}
+                                            Weight: {{details[pokemon.id].weight}}
+                                            Base XP: {{details[pokemon.id].base_experience}}
+                                            Types:
+                                            <span ng-repeat="type in details[pokemon.id].types">
+                                                {{type.type.name}}
+                                            </span>
+                                        </div>
                                     </div>
-                                </div>
                                 <hr>
                             </div>
                         </div>

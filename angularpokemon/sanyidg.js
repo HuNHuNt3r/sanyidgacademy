@@ -27,14 +27,22 @@ angular.module('pokeApp', ['ngAnimate'])
 
     $scope.getDetails = function (id) {
 
-        $http.get('//pokeapi.co/api/v2/pokemon/' + id + '/').success(function (data) {
 
-            $scope.details[id] = data;
-        });
+        if($scope.details[id] === undefined) {
+            $scope.details[id] = 1;
+            $http.get('//pokeapi.co/api/v2/pokemon/' + id + '/').success(function (data) {
+                $scope.details[id] = data;
+            });
+
+        }
+        else {
+            delete $scope.details[id]["hidden"];
+        }
     };
 
     $scope.closeDetails = function (id) {
-        $scope.details.splice(id, 1);
+
+        $scope.details[id]["hidden"] = 1;
     };
 
 
