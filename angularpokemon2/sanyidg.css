@@ -1,0 +1,17 @@
+
+.pokemon{
+    border: thin;
+    border-style: solid;
+    border-radius: 2px;
+
+}
+.pokemon:nth-child(2n){
+    background-color: lightgrey;
+}
+
+.pokeid{
+    float:right;
+}
+.detaildiv {
+    color: red;
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" ng-app ="pokeApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sanyi és DG hiperszuper Angular.JS Pokemon oldala</title>
+    <link href="../modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="sanyidg.css"/>
+</head>
+<body ng-controller="pokecontroller">
+        <h1 class="text-center">Sanyi & DG Pokesite #2</h1>
+        <div class="row">
+            <span class="col-sm-offset-4 col-sm-4" >
+                <input class="form-control" ng-model="search" placeholder="Text to Search">
+
+            </span>
+            <span>
+                Order By :
+                <a href="#" ng-click="sortbyID()">ID</a>
+                <a href="#" ng-click="sortbyName()">Name</a>
+            </span>
+        </div>
+        <div class="container">
+            <div ng-repeat="pokemon in pokemons | filter : search" class="col-sm-6 col-sm-offset-3 pokemon">
+                <span class="pokename">{{ pokemon.name | capitalize}} </span>
+                <span class="pokeid"> #{{pokemon.id}} </span>
+                <span ng-if="!details[pokemon.id]"  ng-click="getDetails(pokemon.id)"><img ng-src="//raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{pokemon.id}}.png"></span>
+                <span ng-if="details[pokemon.id]" ng-click="closeDetails(pokemon.id)"><img ng-src="//raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{pokemon.id}}.png"></span>
+                <div ng-if="details[pokemon.id] " class="detaildiv">Height: {{details[pokemon.id].height}}<br>
+                                                                    Weight: {{details[pokemon.id].weight}}<br>
+                                                                    Order:  {{details[pokemon.id].order}}</div>
+            </div>
+       </div>
+</body>
+<script src="../modules/angular/angular.min.js"></script>
+<script src="sanyidg.js" type="application/javascript"></script>
+</html>
